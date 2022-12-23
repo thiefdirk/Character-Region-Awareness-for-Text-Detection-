@@ -39,7 +39,7 @@ def run():
     # crite = nn.MSELoss(reduction="mean")
     # l1_crite = nn.SmoothL1Loss(reduction="mean")
     # cls_crite = nn.CrossEntropyLoss(reduction="mean")
-    loss_fn = ohem.MSE_OHEM_Loss()
+    loss_fn = ohem.MSE_OHEM_Loss() 
     loss_fn = loss_fn.to("cuda")
     print(TicToc.format_time(), " training.........")
 

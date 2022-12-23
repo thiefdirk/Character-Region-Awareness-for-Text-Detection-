@@ -10,7 +10,7 @@ class double_conv(nn.Module):
         self.conv = nn.Sequential(
             nn.Conv2d(in_ch + mid_ch, mid_ch, kernel_size=1),
             nn.BatchNorm2d(mid_ch),
-            nn.ReLU(inplace=True),
+            nn.ReLU(inplace=True), # inplace=True means it will modify the input directly
             nn.Conv2d(mid_ch, out_ch, kernel_size=3, padding=1),
             nn.BatchNorm2d(out_ch),
             nn.ReLU(inplace=True)
@@ -20,7 +20,7 @@ class double_conv(nn.Module):
         x = self.conv(x)
         return x
 
-
+##
 class CRAFT(nn.Module):
     def __init__(self, pretrained=False, freeze=False):
         super(CRAFT, self).__init__()
@@ -48,7 +48,7 @@ class CRAFT(nn.Module):
         init_weights(self.upconv3.modules())
         init_weights(self.upconv4.modules())
         init_weights(self.conv_cls.modules())
-        
+        ##
     def forward(self, x):
         """ Base network """
         sources = self.basenet(x)
